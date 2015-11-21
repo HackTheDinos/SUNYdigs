@@ -1,6 +1,4 @@
 # SUNYdigs
 
-UX 
-SUNYdigsthepast --> DjangoServer
-MachLearn 
+UX ///\\\ SUNYdigsthepast --> DjangoServer //// \\\\ MachLearn 
 
