@@ -1,20 +1,20 @@
 @charset "utf-8";
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import url(http://fonts.googleapis.com/css?family=Roboto);
 /* General styles*/
 /*Define your own styles in this stylesheet*/
 body{
-	font-family: 'Open Sans', 'sans-serif';
-	background-color: rgba(246,246,246,1.00);
+	font-family: 'Roboto', 'sans-serif';
+	background-color: rgba(255,255,255,1.00);
 }
 h1, h2, h3, h4, h5, h6{
-	font-family: 'montserrat' , sans-serif;
+	font-family: 'Roboto' , sans-serif;
 	color: rgba(146,146,146,1.00);
 	font-style: normal;
 	font-weight: 400;
 }
 p{
 	font-size: 14px;
-	font-family: 'alice', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-style: normal;
 	font-weight: 100;
 	color: rgba(146,146,146,1.00);
@@ -106,7 +106,7 @@ a:hover {
 }
 .linkStyle {
 	color: rgba(146,146,146,1.00);
-	font-family: 'montserrat', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-style: normal;
 	font-weight: 100;
 	text-decoration: none;	
@@ -133,13 +133,13 @@ a:hover {
 }
 /* Typography styles*/
 .textStyle {
-	font-family: 'montserrat', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-style: normal;
 	font-weight: 400;
 	color: rgba(146,146,146,1.00);
 }
 .headingStyle {
-	/* [disabled]font-family: 'montserrat', sans-serif; */
+	/* [disabled]font-family: 'Roboto', sans-serif; */
 	/* [disabled]font-style: normal; */
 	/* [disabled]font-weight: 400; */
 	color: #0072BC;
@@ -177,7 +177,7 @@ a:hover {
 }
 .paraContent{
 	font-size: 14px;
-	font-family: alice, sans-serif;
+	font-family: Roboto, sans-serif;
 	font-style: normal;
 	font-weight: 400;
 	color: rgba(146,146,146,1.00);
@@ -188,7 +188,7 @@ a:hover {
 .contentArea{
 	
 	font-size: 14px;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-style: normal;
 	font-weight: 100;
 	color: rgba(146,146,146,1.00);
@@ -393,7 +393,7 @@ input {
 
 #pageslide .project_info h1 {
 	font-size: 35px;
-	font-family: 'Open Sans';
+	font-family: 'Roboto';
 	font-weight: 300;
 	color: #2e3641;
 	text-align: center;
@@ -428,48 +428,94 @@ input {
 	margin-bottom: 20px;
 }
 #fname {
-	text-align:center;
+	text-align: center;
+	border: thin solid #C0C0C0;
+	
 }
       
-/*      &::placeholder {
-        transition: all 0.2s ease-in-out;
-        color: #999;
-        font: 18px Helvetica, Arial, sans-serif;
-      }
-      
-      &:focus, &.populated {
-        padding-top: 28px;
-        padding-bottom: 12px;
-        
-        &::placeholder {
-          color: transparent;
-        }
-        
-        & + span {
-          opacity: 1;
-          top: 10px;
-        }
-
-    
-    span {
-      color: #35dc9b;
-      font: 13px Helvetica, Arial, sans-serif;
-      position: absolute;
-      top: 0px;
-      left: 20px;
-      opacity: 0;
-      transition: all 0.2s ease-in-out;
-    }
-
-  input[type="submit"] {
-    transition: all 0.2s ease-in-out;
-    font: 18px Helvetica, Arial, sans-serif;
-    border: none;
-    background: #1aaf75;
-    color: #fff;
-    padding: 16px 40px;
-    
-    &:hover {
-      background: #109f67;
-    }
-*/
+/* Form */
+form {
+  display: table;
+  margin: 40px auto;
+}
+form label {
+  position: relative;
+  display: block;
+}
+form label input {
+  font: 18px Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  display: block;
+  border: none;
+  padding: 20px;
+  width: 300px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  outline: none;
+  -webkit-transition: all 0.2s ease-in-out;
+          transition: all 0.2s ease-in-out;
+}
+form label input::-webkit-input-placeholder {
+  -webkit-transition: all 0.2s ease-in-out;
+          transition: all 0.2s ease-in-out;
+  color: #999;
+  font: 18px Helvetica, Arial, sans-serif;
+}
+form label input::-moz-placeholder {
+  transition: all 0.2s ease-in-out;
+  color: #999;
+  font: 18px Helvetica, Arial, sans-serif;
+}
+form label input:-ms-input-placeholder {
+  transition: all 0.2s ease-in-out;
+  color: #999;
+  font: 18px Helvetica, Arial, sans-serif;
+}
+form label input::placeholder {
+  -webkit-transition: all 0.2s ease-in-out;
+          transition: all 0.2s ease-in-out;
+  color: #999;
+  font: 18px Helvetica, Arial, sans-serif;
+}
+form label input:focus, form label input.populated {
+  padding-top: 28px;
+  padding-bottom: 12px;
+}
+form label input:focus::-webkit-input-placeholder, form label input.populated::-webkit-input-placeholder {
+  color: transparent;
+}
+form label input:focus::-moz-placeholder, form label input.populated::-moz-placeholder {
+  color: transparent;
+}
+form label input:focus:-ms-input-placeholder, form label input.populated:-ms-input-placeholder {
+  color: transparent;
+}
+form label input:focus::placeholder, form label input.populated::placeholder {
+  color: transparent;
+}
+form label input:focus + span, form label input.populated + span {
+  opacity: 1;
+  top: 10px;
+}
+form label span {
+	color: #EC3333;
+	font: 13px Helvetica, Arial, sans-serif;
+	position: absolute;
+	top: 0px;
+	left: 20px;
+	opacity: 0;
+	-webkit-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+form input[type="submit"] {
+  -webkit-transition: all 0.2s ease-in-out;
+          transition: all 0.2s ease-in-out;
+  font: 18px Helvetica, Arial, sans-serif;
+  border: none;
+  background: #1aaf75;
+  color: #fff;
+  padding: 16px 40px;
+}
+form input[type="submit"]:hover {
+	background: #74d5df;
+}
