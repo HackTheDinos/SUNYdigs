@@ -25,6 +25,6 @@ urlpatterns = patterns('',
                        # sample data... not actually related to working app - proof of concept
                        url(r'^words/',include('app.word.urls')),
                        ######################################
-                       url(r'^word/','app.views.wordindex')
+                       url(r'^word/','app.views.word')
 )
                            

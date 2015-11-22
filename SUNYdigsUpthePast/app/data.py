@@ -41,7 +41,11 @@ def getOrderedElements():
         if translation != "!@#$%":
             value = img["word"][2]
             if value > 0:
-                positives.append(img)
+                if value > 5:
+                    #pass into good database
+                    pass
+                else:
+                    positives.append(img)
             elif value < 0:
                 negatives.append(img)
             else:

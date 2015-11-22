@@ -19,10 +19,7 @@ def wordsindex(request):
         })
     )
 
-def word(request):
-    assert isinstance(request, HttpRequest)
-    return render(request,'app/err.html')
-
+'''
 def words(request,word_id):
     """Renders the individual word page"""
     print "alskdfjalkdsjfads"
@@ -33,3 +30,4 @@ def words(request,word_id):
         'app/word.html',{'word':"adskfjlka;djflkadsjf", 'link':'dummylinkf4now.net'}
     )
 
+'''
