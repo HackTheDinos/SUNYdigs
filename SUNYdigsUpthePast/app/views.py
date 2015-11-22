@@ -18,13 +18,13 @@ def home(request):
     else:
         id = 0
             #DANGER - assumes that there is at least one element in data...
+    try:
+        result = data[id]
+    except:
         try:
-            result = data[id]
+            result = data[0]
         except:
-            try:
-                result = data[0]
-            except:
-                return "somehow.... there are no more items that are in need of validation"
+            return "somehow.... there are no more items that are in need of validation"
     if request.method =="POST":
         form = TranslationForm(data=request.POST)
         print id
@@ -32,13 +32,13 @@ def home(request):
             if "submit" in request.POST:
                 opinion = request.POST["submit"]
                 #opinion = str(form.cleaned_data["submit"])
-                if opinion.lower() == "yes":
+                if opinion.lower() == "dig it":
                     #add 1 to value
-
-
+                    updateElement(id, 1)
                     return render(request,'app/err.html')
-                elif opinion.lower() == "no":
+                elif opinion.lower() == "bury it":
                     #add -1 to value
+                    updateElement(id, -1)
                     return render(request,'app/word.html')
         
         print request.POST
@@ -48,7 +48,8 @@ def home(request):
         assert isinstance(request, HttpRequest)
 
         translation = result["word"][1]
-        form = TranslationForm(initial={'translation':result["word"][1]})
+        
+        form = TranslationForm(initial={'translation':translation})
     
         #NOTE NULL TRANSLATIONS WILL NOT BE RETRIEVED
         return render(

@@ -29,6 +29,7 @@ $(function() {
     $('#id_translation').trigger('focus');
   }, 500);
 });
+
 </script>
 </head>
 
@@ -55,8 +56,8 @@ Container starts here
     </nav>
     <h1 class="fluid mainHeading headingStyle">What do you think this says?</h1>
     <div class="fluid parsedImg">
-    <div class="leftbtn"><a href="#previous">Previous</a></div>
-    <div class="rightbtn"><a href="#next">Next</a></div>
+    <div class="leftbtn"><a id="prev">Previous</a></div>
+    <div class="rightbtn"><a id="next">Next</a></div>
 <!--
     <div class="leftbtn hide_mobile"><a href="#previous">Previous</a></div>
     <div class="rightbtn hide_mobile"><a href="#next">Next</a></div>
@@ -66,7 +67,7 @@ Container starts here
       <img src="{{word}}" alt=""/> 
       <!--img src="images/see.png" alt=""/--> </a>
 <div id="form">
- <form action="?id=2" method="POST">
+ <form id="formid" action="?id=2" method="POST">
   {% csrf_token %}
    <label>
 {{form}} <!-- id of this element is id_translation -->
@@ -74,8 +75,8 @@ Container starts here
       <span>Enter corrected word</span>
   </label>
    <div id="buttons">
-     <input class="btn blue" type="submit" name="submit" value="Yes">Yes</input>  
-     <input class="btn red" type="submit" name="submit" value="No">No</input></div>
+     <input class="btn blue" type="submit" name="submit" value="Dig It">Dig It</input>  
+     <input class="btn red" type="submit" name="submit" value="Bury It">Bury It</input></div>
 </form>
     <img src="/static/images/user.png" alt=""/>Last modified by: <span class="babyblue"><strong>@SUNYdigs</strong></span><br/>
  </div>
@@ -129,14 +130,24 @@ Container starts here
 <script>
 
   var url = window.location.href;
+
   var i = url.indexOf("id=");
-  if (i != -1){
-  var u = url.substring(0,i) + "id=" + (parseInt(url.charAt(i+3))+1);
- 
-  window.location.href = u;
+
+  if (i >0){
+  if (parseInt(url.charAt(i+3)) > 0){ 
+  var p = url.substring(0,i) + "id=" + (parseInt(url.charAt(i+3))-1);
+  var n = url.substring(0,i) + "id=" + (parseInt(url.charAt(i+3))+1);
+  
   }
-  })
-$('#formId').attr('action', '');
+  else{
+   var p = url.substring(0,i) + "id=" + (0);
+  var n = url.substring(0,i) + "id=" + (1);
+  }
+  $("#prev").attr("href",p);
+  $("#next").attr("href",n);
+ 
+  }
+  $('#formid').attr('action', url);
 
 
 </script>

@@ -235,7 +235,7 @@ label {
 input {
       font: 18px Helvetica, Arial, sans-serif;
       box-sizing: border-box;
-      display: block;
+      /*display: block;*/
       border: none;
       padding: 20px;
       width: 300px;
@@ -440,12 +440,12 @@ form {
 }
 form label {
   position: relative;
-  display: block;
+  /*display: block;*/
 }
 form label input {
   font: 18px Helvetica, Arial, sans-serif;
   box-sizing: border-box;
-  display: block;
+  /*display: block;*/
   border: none;
   padding: 20px;
   width: 300px;
@@ -501,8 +501,8 @@ form label span {
 	color: #EC3333;
 	font: 13px Helvetica, Arial, sans-serif;
 	position: absolute;
-	top: 0px;
-	left: 20px;
+	top: 6%;
+	left: 30%;
 	opacity: 0;
 	-webkit-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
