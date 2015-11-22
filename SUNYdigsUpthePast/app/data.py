@@ -8,8 +8,26 @@ conn = MongoClient()
 db = conn['word_images']
 
 
-d = [["brown","1899","images/06.jpg","images/06/006.png"],
-["brown","1899","images/06.jpg","images/06/008.png"]]
+d = [
+
+["brown","1899","images/06.jpg","images/06/059.png"],
+["brown","1899","images/06.jpg","images/06/060.png"],
+["brown","1899","images/06.jpg","images/06/064.png"],
+["brown","1899","images/06.jpg","images/06/065.png"],
+["brown","1899","images/06.jpg","images/06/083.png"],
+["brown","1899","images/06.jpg","images/06/090.png"],
+["brown","1899","images/06.jpg","images/06/091.png"],
+
+["brown","1899","images/06.jpg","images/06/006.png"],
+["brown","1899","images/06.jpg","images/06/008.png"],
+["brown","1899","images/06.jpg","images/06/010.png"],
+["brown","1899","images/06.jpg","images/06/011.png"],
+["brown","1899","images/06.jpg","images/06/012.png"],
+["brown","1899","images/06.jpg","images/06/013.png"],
+["brown","1899","images/06.jpg","images/06/017.png"],
+["brown","1899","images/06.jpg","images/06/018.png"],
+["brown","1899","images/06.jpg","images/06/022.png"],
+]
 
 
 def addTest(L):
@@ -25,8 +43,8 @@ def addTest(L):
 def clearALL():
     db.word_images.remove()
     db.validated.remove()
-clearALL()
-addTest(d)
+#clearALL()
+#addTest(d)
 
         
 def getOrderedElements():
@@ -61,6 +79,7 @@ def getOrderedElements():
 def updateElement(id, increment):
     L = getOrderedElements()
     new_value = L[id]["word"][2]
+    print new_value
     orig = L[id]
     print orig
     new_value += increment
