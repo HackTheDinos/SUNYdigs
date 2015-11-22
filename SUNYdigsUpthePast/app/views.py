@@ -24,6 +24,8 @@ def home(request):
         try:
             result = data[0]
         except:
+            print data
+            return render(request,"app/word.html")
             return "somehow.... there are no more items that are in need of validation"
     if request.method =="POST":
         form = TranslationForm(data=request.POST)
@@ -44,7 +46,7 @@ def home(request):
         
         print request.POST
     #        updateElement
-        return "ADKLJFALDKS"
+#        return "ADKLJFALDKS"
     else: # GET REQUEST
         assert isinstance(request, HttpRequest)
 
@@ -107,3 +109,7 @@ def words(request,word_id):
             )
     except:
         return render(request,'app/err.html')
+
+
+def yum(request):
+    return render(request,'app/err.html')

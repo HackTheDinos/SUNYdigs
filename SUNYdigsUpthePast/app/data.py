@@ -18,7 +18,7 @@ def addTest():
                      "translated.....",
                      i]
              }
-        #db.word_images.insert(d)
+        db.word_images.insert(d)
         i-=1
 
         
@@ -82,3 +82,4 @@ def insertGood(item):
     # remove from old database
     
     
+addTest()
