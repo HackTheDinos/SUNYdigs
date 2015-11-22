@@ -6,5 +6,5 @@ from .models import Word
 
 
 class TranslationForm(forms.Form):
-    translation = forms.CharField(widget=forms.Textarea,label="")
+    #translation = forms.CharField(widget=forms.Textarea,label="")
     translation = forms.CharField(label="")
