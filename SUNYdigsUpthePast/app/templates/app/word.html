@@ -32,7 +32,7 @@ NEXT ELEMENT
   var i = url.indexOf("id=");
   if (i != -1){
   var u = url.substring(0,i) + "id=" + (parseInt(url.charAt(i+3))+1);
-  console.log(u);
+ 
   window.location.href = u;
   }
   })

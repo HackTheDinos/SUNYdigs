@@ -38,12 +38,15 @@ def word(request):
             result = data[0]
         except:
             return "somehow.... there are no more items that are in need of validation"
+
+    translation = result["word"][1]
+    form = TranslationForm(initial={'translation':result["word"][1]})
     
     # NOTE NULL TRANSLATIONS WILL NOT BE RETRIEVED
     
     # dont need other parameters
     return render(request,'app/word.html', {'word':result["word"][0],'parent':result["imgpage"],
-                                            'translation':result["word"][1], }
+                                           'form':form}
                   )
 
 

@@ -17,6 +17,7 @@ from django.conf.urls import include, url, patterns
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
+#import os
 
 urlpatterns = patterns('',
                        url(r'^admin/', include(admin.site.urls)),
@@ -27,4 +28,6 @@ urlpatterns = patterns('',
                        ######################################
                        url(r'^word/','app.views.word')
 )
-                           
+
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+urlpatterns += staticfiles_urlpatterns() #+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
