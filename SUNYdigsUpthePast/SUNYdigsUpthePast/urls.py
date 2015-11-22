@@ -22,7 +22,9 @@ urlpatterns = patterns('',
                        url(r'^admin/', include(admin.site.urls)),
                        url(r'^$', 'app.views.home',name='index'),
                        # /word/4/
-                       #url(r'^(?P<word_id>/[0-9]+)/$', 'app.views.word', name='word'),
-                       url(r'^word/',include('app.word.urls')),
+                       # sample data... not actually related to working app - proof of concept
+                       url(r'^words/',include('app.word.urls')),
+                       ######################################
+                       url(r'^word/','app.views.word')
 )
                            

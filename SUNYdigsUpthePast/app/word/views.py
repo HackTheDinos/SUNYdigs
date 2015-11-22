@@ -4,11 +4,10 @@ from django.shortcuts import render
 from django.http import HttpRequest
 from django.template import RequestContext
 from datetime import datetime
-from .models import Word
 from django.shortcuts import get_object_or_404
 
 
-def wordindex(request):
+def wordsindex(request):
     assert isinstance(request, HttpRequest)
     return render(
         request,
@@ -20,8 +19,8 @@ def wordindex(request):
         })
     )
 
-
-def word(request,word_id):
+'''
+def words(request,word_id):
     """Renders the individual word page"""
     print "alskdfjalkdsjfads"
     assert isinstance(request, HttpRequest)
@@ -31,3 +30,4 @@ def word(request,word_id):
         'app/word.html',{'word':"adskfjlka;djflkadsjf", 'link':'dummylinkf4now.net'}
     )
 
+'''
