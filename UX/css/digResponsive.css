@@ -64,7 +64,7 @@ img, object, embed, video {
 /* Navigation Bar styles */
 .topNav {
 	width: 100%;
-	margin-left: 0;
+	margin-left: 15%;
 	clear: both;
 }
 .topNavUl {
