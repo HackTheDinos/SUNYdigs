@@ -32,6 +32,7 @@ def home(request):
             if "submit" in request.POST:
                 opinion = request.POST["submit"]
                 #opinion = str(form.cleaned_data["submit"])
+                print form.cleaned_data
                 if opinion.lower() == "dig it":
                     #add 1 to value
                     updateElement(id, 1)
@@ -106,6 +107,3 @@ def words(request,word_id):
             )
     except:
         return render(request,'app/err.html')
-
-def yum(request):
-    return render(request,'app/word.html')
