@@ -427,7 +427,7 @@ input {
 #pageslide .videoWrapper {
 	margin-bottom: 20px;
 }
-#fname {
+#id_translation {
 	text-align: center;
 	border: thin solid #C0C0C0;
 	
@@ -520,7 +520,7 @@ form input[type="submit"]:hover {
 	background: #74d5df;
 }
 
-.leftBtn{
+.leftbtn{
 	/*margin-left:1%;
 	display: inline-block;*/
 	
@@ -531,9 +531,9 @@ form input[type="submit"]:hover {
 	padding-left: 2.275%;
 	padding-right: 2.275%;
 	float: left;
-	
+	background-color:blue;
 }
-.RightBtn{
+.rightbtn{
 	position: relative;
 	
 	margin-top:50px;
@@ -541,4 +541,5 @@ form input[type="submit"]:hover {
 	padding-left: 2.275%;
 	padding-right: 2.275%;
 	float: right;
-}
+	background-color:blue
+	}

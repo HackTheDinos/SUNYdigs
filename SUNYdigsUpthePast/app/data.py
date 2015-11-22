@@ -41,9 +41,9 @@ def getOrderedElements():
         if translation != "!@#$%":
             value = img["word"][2]
             if value > 0:
-                if value > 5:
+                if value >= 5:
                     #pass into good database
-                    pass
+                    insertGood(img)
                 else:
                     positives.append(img)
             elif value < 0:
@@ -52,7 +52,31 @@ def getOrderedElements():
                 zeros.append(img)
     
 
-
+    print "\n\n"
     positives = sorted(positives,key=lambda x: x["word"][2], reverse=True)
     negatives = sorted(negatives,key=lambda x: x["word"][2], reverse=True)
     return positives + negatives + zeros
+
+
+
+def updateElement(id, new_value):
+    
+
+
+    pass
+
+
+
+def insertGood(item):
+    db2 = conn["validated"]
+    #print item
+    #db2.validated.remove()
+    db2.validated.insert(item)
+    db.word_images.remove({"_id":item["_id"]})
+    db.word_images.find()
+    #print db2.validated.find({"_id":item["_id"]})
+    # remove from old database
+    
+    
+
+getOrderedElements()
