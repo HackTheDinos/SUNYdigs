@@ -520,3 +520,25 @@ form input[type="submit"]:hover {
 	background: #74d5df;
 }
 
+.leftBtn{
+	/*margin-left:1%;
+	display: inline-block;*/
+	
+	position: absolute;
+	
+	margin-top:50px;
+	
+	padding-left: 2.275%;
+	padding-right: 2.275%;
+	float: left;
+	
+}
+.RightBtn{
+	position: relative;
+	
+	margin-top:50px;
+	
+	padding-left: 2.275%;
+	padding-right: 2.275%;
+	float: right;
+}
