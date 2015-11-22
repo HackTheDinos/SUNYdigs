@@ -7,19 +7,26 @@ conn = MongoClient()
 
 db = conn['word_images']
 
-def addTest():
-    i = 7
-    
-    while i > -4:
-        d = {"author":"a"+str(i),
-             "bookyr":"by"+str(i),
-             "imgpage":"img"+str(i),
-             "word":[str(i) + "lkasdjfa",
-                     "translated.....",
+
+d = [["brown","1899","images/06.jpg","images/06/006.png"],
+["brown","1899","images/06.jpg","images/06/008.png"]]
+
+
+def addTest(L):
+    for i in L:
+        d = {"author":i[0],
+             "bookyr":i[1],
+             "imgpage":"/static/"+i[0]+"-"+i[1]+"/"+i[2],
+             "word":[ "/static/" + i[0]+"-"+i[1]+"/"+i[3],
+                     "translated",
                      i]
              }
         db.word_images.insert(d)
-        i-=1
+def clearALL():
+    db.word_images.remove()
+    db.validated.remove()
+clearALL()
+addTest(d)
 
         
 def getOrderedElements():
@@ -82,4 +89,3 @@ def insertGood(item):
     # remove from old database
     
     
-addTest()
