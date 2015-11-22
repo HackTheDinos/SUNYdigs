@@ -12,7 +12,7 @@ import numpy as np
 
 #for filename in os.listdir(""):
 
-image = cv2.imread("/Users/smritijha/amnh/printed_text.png")
+image = cv2.imread("/Users/smritijha/amnh/06.jpg")
 gray = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY) # grayscale
 img = cv2.medianBlur(gray,5)
 
@@ -22,7 +22,7 @@ img = cv2.medianBlur(gray,5)
 #th2 = cv2.adaptiveThreshold(img,255,cv2.ADAPTIVE_THRESH_MEAN_C,cv2.THRESH_BINARY,11,2)
 
 
-ret,th1 = cv2.threshold(gray,170,255,cv2.THRESH_BINARY)
+ret,th1 = cv2.threshold(gray,200,255,cv2.THRESH_BINARY_INV)
 
 
 
@@ -33,36 +33,37 @@ kernel = np.ones((2,2),np.uint8)
 
 #noise removal
 #-------------------
-opening = cv2.morphologyEx(th3,cv2.MORPH_OPEN,kernel, iterations = 2)
+opening = cv2.morphologyEx(th3,cv2.MORPH_OPEN,kernel, iterations = 1)
 #--------------------
 
+morphKernel = cv2.getStructuringElement(cv2.MORPH_CROSS,(3,3))
 
 #dilate to get connected components
-dilation = cv2.dilate(opening,kernel,iterations = 5)
+dilation = cv2.dilate(opening,morphKernel,iterations = 3)
 
 
 #cv2.imshow('gray_image',gray)
 #cv2.waitKey(0)
 #cv2.destroyAllWindows()
-'''
+
 contours,hierarchy = cv2.findContours(dilation,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
 print contours
 
 for contour in contours:
     # get rectangle bounding contour
     [x,y,w,h] = cv2.boundingRect(contour)
-
+    
     # discard areas that are too large
-    if h>300 and w>300:
+    if h>30:
         continue
-
+    
     # discard areas that are too small
-    if h<40 or w<40:
+    if h<10 or w<10:
         continue
-
+    
     # draw rectangle around contour on original image
-    cv2.rectangle(gray,(x,y),(x+w,y+h),(255,0,255),2)
-'''
+    cv2.rectangle(gray,(x,y),(x+w,y+h),(100,0,100),1)
+
 
 #cv2.imshow('detection_img',gray)
 #cv2.waitKey(0)
