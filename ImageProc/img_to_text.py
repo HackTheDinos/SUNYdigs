@@ -6,6 +6,8 @@ import cv2
 import os
 from matplotlib import pyplot as plt
 import numpy as np
+import re
+import json
 
 rootdir = '/Users/smritijha/AMNH/trial/'
 
@@ -37,6 +39,8 @@ for subdir, dirs, files in os.walk(rootdir):
 
                 contours,hierarchy = cv2.findContours(dilation,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
 
+
+
                 #write words to image directory
                 #create a directory with image name as folder name
                 path = os.path.join(subdir, os.path.splitext(file)[0])
@@ -54,8 +58,14 @@ for subdir, dirs, files in os.walk(rootdir):
                 if not os.path.isdir(path) and curr_dir == 'images':
                     os.makedirs(path)
                 
+                    #parse enclosing journal folder
+                    author_year = os.path.split(os.path.dirname(os.path.dirname(path)))[1]
+                    author_year = re.split(r'\s|-', author_year)
+                    author = author_year[0]
+                    year = author_year[1]
+
                     count = 0
-                
+                    
                     for contour in contours:
                         # get rectangle bounding contour
                         [x,y,w,h] = cv2.boundingRect(contour)
@@ -83,4 +93,4 @@ for subdir, dirs, files in os.walk(rootdir):
                         crop_img = image[y:y+h, x:x+w]
                         cv2.imwrite(fullpath, crop_img)   
 
-print 'end scene'
+print '-*-end scene-*-'
