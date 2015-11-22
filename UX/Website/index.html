@@ -30,7 +30,7 @@ $(function() {
 });
 </script>
 </head>
-<body>
+<body class="scrollable">
 <!--************************************************************************
 Container starts here
 ****************************************************************************-->
@@ -46,7 +46,7 @@ Container starts here
     </a>
     <nav class="fluid topNav"> 
       <ul class="fluid fluidList topNavUl">
-        <li class="fluid topNavLI zeroMargin_desktop zeroMargin_tablet zeroMargin_mobile"><strong><a href="#" class="linkStyle" title="Nav Link">About</a></strong></li>
+        <li class="fluid topNavLI zeroMargin_desktop zeroMargin_tablet zeroMargin_mobile"><strong><a href="#about" class="linkStyle scrolllink"  title="Nav Link">About</a></strong></li>
         <li class="fluid topNavLI"><strong><a href="#" class="linkStyle" title="Nav Link">Share</a></strong></li>
        
       </ul>
@@ -78,14 +78,17 @@ Container starts here
     ****************************************************************************-->
   <article class="fluid gallery">
     <h2 class="fluid showAreaH2 headingStyle2">Archival Field Notebooks of Paleontological Expeditions</h2>
-    <figure class="fluid tiles zeroMargin_desktop zeroMargin_tablet"> <img src="images/bK1.jpg" alt="placeholder"/>
-      <figcaption class="textStyle"></figcaption>
+    <figure class="fluid tiles zeroMargin_desktop zeroMargin_tablet"> <img src="images/bK1.jpg" alt="placeholder"/><br/>
+      <img src="images/completed_btn.png" alt=""/>
+<figcaption class="textStyle"></figcaption>
     </figure>
-    <figure class="fluid tiles"> <img src="images/bK2.jpg" alt="placeholder"/>
-      <figcaption class="textStyle"></figcaption>
+    <figure class="fluid tiles"> <img src="images/bK2.jpg" alt="placeholder"/><br/>
+      <img src="images/inProgress_btn.png" alt=""/>
+<figcaption class="textStyle"></figcaption>
     </figure>
-    <figure class="fluid tiles  zeroMargin_tablet hide_mobile"> <img src="images/bK3.jpg" alt="placeholder"/>
-      <figcaption class="textStyle"></figcaption>
+    <figure class="fluid tiles  zeroMargin_tablet hide_mobile"> <img src="images/bK3.jpg" alt="placeholder"/><br/>
+      <img src="images/inProgress_btn.png" alt=""/>
+<figcaption class="textStyle"></figcaption>
     </figure>
  
     
@@ -93,29 +96,19 @@ Container starts here
   </article>
   <!--Gallery ends here--> 
   
+  
   <!--************************************************************************
-    Secondary container starts here
+    Footer starts here
     ****************************************************************************-->
   <article class="fluid textContainer" id="secondaryStyling">
     <section class="fluid secondarySection zeroMargin_desktop zeroMargin_tablet">
-      <h2 class="fluid secondaryHeading headingStyle">ABOUT THIS PROJECT</h2>
+      <h2 class="fluid secondaryHeading headingStyle"><a name="about">ABOUT THIS PROJECT</a></h2>
       <p class="contentArea">"Paleontologists throughout the 20th century used field notebooks to keep detailed logs of their expeditions. Previous work at the museum has given us these notes as scanned images and as very imperfect text transcriptions. The text has never analyzed for potentially relevant pieces of information that could lead to new understanding of past expeditions. These data are very frequently requested by researchers from around the world, but their imperfect nature make them less useful than they could be."</p>
       <p class="contentArea">The SUNYdigs team decided that the best solution for this project was to gamify this "Dig Up the Past" challenge by creating a platform where users would transcribe without being overwhelmed.</p>
     </section>
     <section class="fluid secondarySection hide_mobile"> </section>
   </article>
-  <!--Secondary content section ends here--> 
-  
-  <!--************************************************************************
-    Footer starts here
-    ****************************************************************************-->
-  <footer class="fluid footer">
-    <section class="fluid footerSection zeroMargin_desktop zeroMargin_tablet">
-      <h2 class="fluid footerTitle headingStyle">#HackTheDinos</h2>
-      <p class="paraContent footerTextContainer">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
-    </section>
-
-  </footer>
+ 
   <!--Footer ends here--> 
 </div>
 <!--Container ends here-->

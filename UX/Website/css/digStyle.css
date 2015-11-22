@@ -40,6 +40,16 @@ p{
 #buttons {
 	color: #FFFFFF;
 	text-align: center;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	
+	transition: all 150ms;
+	-webkit-transition: all 150ms;
+	-moz-transition: all 150ms;
+	
+	-webkit-appearance: none;
+	outline: none;
 }
 .btn {
   border-radius: 5px;
@@ -69,6 +79,9 @@ p{
 .blue:hover {
   background-color: #6FC6FF;
 }
+.blue:visited {
+	color: rgba(255,255,255,1.00);
+}
 .red {
   background-color: #e74c3c;
   box-shadow: 0px 5px 0px 0px #CE3323;
@@ -76,6 +89,9 @@ p{
 
 .red:hover {
   background-color: #FF6656;
+}
+.red:visited {
+	color: rgba(255,255,255,1.00);
 }
 
 /* Link styles*/
@@ -103,7 +119,7 @@ a:hover {
     padding-top: 20px;
 }
 .heroHeader {
-	height: 450px;
+	
 	
 }
 /* Navigation styles*/
@@ -156,7 +172,7 @@ a:hover {
 
 /* Gallery styles */
 .gallery{
-    padding-top:20px;
+    padding-top:100px;
     padding-bottom:30px;
 }
 .paraContent{
@@ -199,7 +215,7 @@ a:hover {
 .footerTitle {
     text-align: center;
     font-size: 22px;
-	width:100
+	width:100%;
 }
 .footerTextContainer {
 	text-align: justify;
@@ -227,6 +243,189 @@ input {
       font-size: 18px;
       outline: none;
       transition: all 0.2s ease-in-out;
+}
+
+/* #Page Slide
+================================================== */
+#pageslide {
+    /* These styles MUST be included. Do not change. */
+    display: none;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    z-index: 3;
+	width: 100%;
+    background-color: #fff;
+	overflow-y: auto;
+	overflow-x: none;
+	-webkit-overflow-scrolling: touch;
+}
+
+/* Close Bar */
+#pageslide .closebar {
+	width: 100%;
+	height: 105px;
+	text-align: center;
+	background: #f8f8f8;
+	z-index: 4;
+	top: 0;
+}
+
+#pageslide .closebar .closepage {
+	border: 1px solid #202732;
+	width: 61px;
+	height: 61px;
+	display: block;
+	position: absolute;
+	left: 50%;
+	margin-left: -39px;
+	top: 21px;
+	cursor: pointer;
+	
+	transition: all 300ms;
+	-webkit-transition: all 300ms;
+	-moz-transition: all 300ms;
+	
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+}
+
+#pageslide .closebar .closepage span.closebtn {
+	cursor:pointer;
+}
+
+#pageslide .closebar .closepage span.closebtn:after, 
+#pageslide .closebar .closepage span.closebtn:before {
+    content: "";
+    height: 20px;
+    width: 20px;
+    border-top: 1px solid #202732;
+    position: absolute;
+	top: 26px;
+	right: 12px;
+	
+	transition: all 300ms;
+	-webkit-transition: all 300ms;
+	-moz-transition: all 300ms;
+	
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+#pageslide .closebar .closepage span.closebtn:before {
+	right: 26px;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+#pageslide .closebar .closepage:hover {
+	border: 1px solid #4eb3f4;
+}
+
+#pageslide .closebar .closepage:hover span.closebtn:after, 
+#pageslide .closebar .closepage:hover span.closebtn:before {
+	border-top: 1px solid #4eb3f4;
+}
+
+/* Scroll to top button */
+#pageslide .scrolltop {
+	width: 100%;
+	height: 240px;
+	background: #f8f8f8;
+	position: relative;
+	margin-top: 40px;
+	display: block;
+	overflow: hidden;
+}
+
+#pageslide .scrolltop .go-to-top {
+	margin: 90px auto;
+	border: 1px solid #202732;
+	width: 61px;
+	height: 61px;
+	display: block;
+	position: relative;
+	cursor: pointer;
+	
+	transition: all 300ms;
+	-webkit-transition: all 300ms;
+	-moz-transition: all 300ms;
+	
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+}
+
+#pageslide .scrolltop .go-to-top i {
+	position: absolute;
+	color: #202732;
+	font-size: 29px;
+	top: 50%;
+	left: 50%;
+	margin-top: -17px;
+	margin-left: -9px;
+	
+	transition: all 200ms;
+	-webkit-transition: all 200ms;
+	-moz-transition: all 200ms;
+}
+
+#pageslide .scrolltop .go-to-top:hover {
+	border: 1px solid #4eb3f4;
+}
+
+#pageslide .scrolltop .go-to-top:hover i {
+	color: #4eb3f4;
+}
+
+/* Main Content */
+#pageslide .project_info {
+	margin-bottom: 15px;
+	margin-top: 80px;
+}
+
+#pageslide .project_info h1 {
+	font-size: 35px;
+	font-family: 'Open Sans';
+	font-weight: 300;
+	color: #2e3641;
+	text-align: center;
+	margin: 0;
+}
+
+#pageslide .project_info h3 {
+	font-size: 15px;
+	margin-top: 15px;
+	text-align: center;
+	color: #898989;
+	font-style: italic;
+}
+
+#pageslide .project_info hr {
+	width: 200px;
+	height: 2px;
+	border: none;
+	display: block;
+	margin: 40px auto;
+	background: #dbdbdb;
+}
+
+#pageslide .project_info article p {
+	font-size: 14px;
+
+	color: #656e7c;
+	line-height: 24px;
+}
+
+#pageslide .videoWrapper {
+	margin-bottom: 20px;
 }
       
 /*      &::placeholder {

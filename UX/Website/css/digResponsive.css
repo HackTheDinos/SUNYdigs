@@ -52,7 +52,10 @@ img, object, embed, video {
 }
 
 /* Header & HERO styles*/
+/*mobile*/
 .heroHeader {
+	height: 700px;
+	
 }
 .logo {
 	width: 90%;
@@ -155,7 +158,10 @@ display: none;
 	margin-left: auto;
 }
 /* Header & HERO styles*/
+/*Tablet*/
 .heroHeader {
+	height: 500px;
+	
 }
 .logo {
 	width: 15.2542%;
@@ -249,6 +255,8 @@ margin-left: 0;
 }
 /* Header & HERO styles*/
 .heroHeader {
+	height: 500px;
+	
 }
 .logo {
 	width: 15.2542%;
@@ -257,7 +265,7 @@ margin-left: 0;
 .topNav {
 	width: 23.7288%;
 	clear: none;
-	margin-left: 52.5423%;
+	margin-left: 60.5423%;
 }
 .topNavUl {
 	width: 100%;
