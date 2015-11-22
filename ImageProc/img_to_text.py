@@ -10,6 +10,7 @@ import numpy as np
 import re
 import json
 import string
+import argparse
 
 rootdir = '/Users/smritijha/AMNH/demo/'
 
@@ -41,8 +42,6 @@ for subdir, dirs, files in os.walk(rootdir):
 
                 contours,hierarchy = cv2.findContours(dilation,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
 
-
-
                 #write words to image directory
                 #create a directory with image name as folder name
                 path = os.path.join(subdir, os.path.splitext(file)[0])
@@ -69,10 +68,10 @@ for subdir, dirs, files in os.walk(rootdir):
                     year = author_year[1]
 
                     count = 0
-                    data = {}
                     json_list = []
                     
                     for contour in contours:
+                            data = {}
                             # get rectangle bounding contour
                             [x,y,w,h] = cv2.boundingRect(contour)
     
@@ -99,8 +98,9 @@ for subdir, dirs, files in os.walk(rootdir):
                             crop_img = image[y:y+h, x:x+w]
                             cv2.imwrite(fullpath, crop_img)  
 
-                            parent_img = str(subdir)
-                            word_path = str(path)            
+
+                            parent_img = str(os.path.join(subdir,file))
+                            word_path = str(fullpath)            
                             
                             parent_img = string.replace(parent_img, working_dir, '.')
                             word_path = string.replace(word_path, working_dir, '.')
@@ -113,11 +113,13 @@ for subdir, dirs, files in os.walk(rootdir):
 
                             json_list.append(data)
 
+                    
                     #dump the list of json objects in 
                     jsondata = os.path.join(subdir, 'jsondata.txt')
 
-                    with open(jsondata, 'w') as f:
-                        json.dump(json_list, f, ensure_ascii=False)
+                    with open(jsondata, 'a') as f:
+                        for item in json_list:
+                            json.dump(item, f, ensure_ascii=False)
 
 
 print '-*-end scene-*-'
