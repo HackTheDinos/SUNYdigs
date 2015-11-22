@@ -9,7 +9,6 @@ db = conn['word_images']
 
 
 d = [
-
 ["brown","1899","images/06.jpg","images/06/059.png"],
 ["brown","1899","images/06.jpg","images/06/060.png"],
 ["brown","1899","images/06.jpg","images/06/064.png"],
@@ -36,15 +35,18 @@ def addTest(L):
              "bookyr":i[1],
              "imgpage":"/static/"+i[0]+"-"+i[1]+"/"+i[2],
              "word":[ "/static/" + i[0]+"-"+i[1]+"/"+i[3],
-                     "translated",
-                     i]
-             }
+                    "translated",
+                    i]
+        }
         db.word_images.insert(d)
+
 def clearALL():
     db.word_images.remove()
     db.validated.remove()
-#clearALL()
-#addTest(d)
+
+
+clearALL()
+addTest(d)
 
         
 def getOrderedElements():
