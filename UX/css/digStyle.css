@@ -70,6 +70,7 @@ p{
 }
 .babyblue{
 	background-color: #55acee;
+	color:#fff;
 }
 .blue {
   background-color: #55acee;
@@ -102,7 +103,7 @@ a:visited {
 	color: rgba(146,146,146,1.00);
 }
 a:hover {
-	color: rgba(255,255,255,1.00);
+	color: rgba(58,57,57,1.00);
 }
 .linkStyle {
 	color: rgba(146,146,146,1.00);
@@ -142,11 +143,10 @@ a:hover {
 	/* [disabled]font-family: 'Roboto', sans-serif; */
 	/* [disabled]font-style: normal; */
 	/* [disabled]font-weight: 400; */
-	color: #0072BC;
 	/*font-size: 32px;*/
 }
 .mainHeading {
-	color: #0072BC;
+	color: #343638;
 	text-align: center;
 	margin-top: 3%;
 	/*font-size: 40px;*/
@@ -186,18 +186,18 @@ a:hover {
 	margin-right: 5%;
 }
 .contentArea{
-	
 	font-size: 14px;
 	font-family: 'Roboto', sans-serif;
 	font-style: normal;
 	font-weight: 100;
-	color: rgba(146,146,146,1.00);
+	color: rgba(58,57,57,1.00);
 	line-height: 1.8;
-	text-align: center;
+	text-align: left;
 	margin-left: 5%;
 	margin-right: 5%;
 }
 .showAreaH2 {
+	color:rgba(58,57,57,1.00);
 	
 }
 #secondaryStyling {
@@ -205,10 +205,10 @@ a:hover {
     padding-bottom: 20px;
 }
 .secondarySection {
-	background-color: rgba(208,207,207,1.00);
+	background-color: rgba(237,237,237,1.00);
 }
 .secondaryHeading {
-	color: rgba(255,255,255,1.00);
+	color: rgba(66,66,66,1.00);
 	text-align: center;
 }
 /*Footer styles*/
@@ -519,3 +519,4 @@ form input[type="submit"] {
 form input[type="submit"]:hover {
 	background: #74d5df;
 }
+
