@@ -43,8 +43,8 @@ def addTest(L):
 def clearALL():
     db.word_images.remove()
     db.validated.remove()
-#clearALL()
-#addTest(d)
+clearALL()
+addTest(d)
 
         
 def getOrderedElements():
