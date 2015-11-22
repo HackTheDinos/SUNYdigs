@@ -12,6 +12,7 @@ import json
 import string
 import argparse
 
+
 rootdir = '/Users/smritijha/AMNH/demo/'
 
 for subdir, dirs, files in os.walk(rootdir):
@@ -115,11 +116,8 @@ for subdir, dirs, files in os.walk(rootdir):
 
                     
                     #dump the list of json objects in 
-                    jsondata = os.path.join(subdir, 'jsondata.txt')
+                    jsonfile = str(os.path.splitext(file)[0]) + '.txt'
+                    jsondata = os.path.join(subdir, jsonfile)
 
-                    with open(jsondata, 'a') as f:
-                        for item in json_list:
-                            json.dump(item, f, ensure_ascii=False)
-
-
-print '-*-end scene-*-'
+                    with open(jsondata, 'w') as f:
+                        json.dump(json_list, f, ensure_ascii=False)
