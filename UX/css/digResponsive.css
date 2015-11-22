@@ -54,9 +54,10 @@ img, object, embed, video {
 /* Header & HERO styles*/
 /*mobile*/
 .heroHeader {
-	height: 700px;
+	height: 600px;
 	
 }
+
 .logo {
 	width: 90%;
 }
@@ -82,13 +83,14 @@ img, object, embed, video {
 /* Main heading styles*/
 
 .mainHeading {
+	font-size:22px;
 }
 .mainTagline {
 }
 
 /* Text & Content areas styles */
 .textContainer {
-    padding-top:20px;
+    padding-top:18px;
 }
 .secondarySection {
 	width: 100%;
@@ -160,9 +162,10 @@ display: none;
 /* Header & HERO styles*/
 /*Tablet*/
 .heroHeader {
-	height: 500px;
+	height: 400px;
 	
 }
+
 .logo {
 	width: 15.2542%;
 }
@@ -187,6 +190,7 @@ display: none;
 
 /* Main heading styles*/
 .mainHeading {
+	font-size:30px;
 }
 .mainTagline {
 }
@@ -255,9 +259,10 @@ margin-left: 0;
 }
 /* Header & HERO styles*/
 .heroHeader {
-	height: 500px;
+	height: 450px;
 	
 }
+
 .logo {
 	width: 15.2542%;
 }
@@ -282,6 +287,7 @@ margin-left: 0;
 /* Main heading styles*/
 
 .mainHeading {
+	font-size:40px;
 }
 .mainTagline {
 }

@@ -53,10 +53,10 @@ p{
 }
 .btn {
   border-radius: 5px;
-  padding: 15px 25px;
+  padding: 5px 25px;
   font-size: 22px;
   text-decoration: none;
-  margin: 20px;
+  margin: 5px;
   color: #fff;
   position: relative;
   display: inline-block;
@@ -143,13 +143,13 @@ a:hover {
 	/* [disabled]font-style: normal; */
 	/* [disabled]font-weight: 400; */
 	color: #0072BC;
-	font-size: 32px;
+	/*font-size: 32px;*/
 }
 .mainHeading {
 	color: #0072BC;
 	text-align: center;
 	margin-top: 3%;
-	font-size: 40px;
+	/*font-size: 40px;*/
 }
 .mainTagline {
 	text-align: center;
@@ -426,6 +426,9 @@ input {
 
 #pageslide .videoWrapper {
 	margin-bottom: 20px;
+}
+#fname {
+	text-align:center;
 }
       
 /*      &::placeholder {
