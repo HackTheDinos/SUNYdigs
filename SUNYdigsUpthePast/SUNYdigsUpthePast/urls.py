@@ -19,6 +19,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = patterns('',
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', 'app.views.home'),
+                       url(r'^admin/', include(admin.site.urls)),
+                       url(r'^$', 'app.views.home',name='index'),
+                       # /word/4/
+                       #url(r'^(?P<word_id>/[0-9]+)/$', 'app.views.word', name='word'),
+                       url(r'^word/',include('app.word.urls')),
 )
+                           

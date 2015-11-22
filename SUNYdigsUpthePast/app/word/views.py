@@ -1,13 +1,14 @@
-#root views
+#HOME VIEW
 
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render
 from django.http import HttpRequest
 from django.template import RequestContext
 from datetime import datetime
 from .models import Word
+from django.shortcuts import get_object_or_404
 
-def home(request):
-    """Renders the home page."""
+
+def wordindex(request):
     assert isinstance(request, HttpRequest)
     return render(
         request,
@@ -20,19 +21,13 @@ def home(request):
     )
 
 
-
 def word(request,word_id):
     """Renders the individual word page"""
-    #print "alskdfjalkdsjfads"
+    print "alskdfjalkdsjfads"
     assert isinstance(request, HttpRequest)
-    try:
-        word = get_object_or_404(Word, id=word_id)
-        url = word.pic_url
-        
-        return render(
-            request,
-            'app/word.html',{'word':"adskfjlka;djflkadsjf", 'link':url}
-            )
-    except:
-        return render(request,'app/err.html')
+    word = get_object_or_404(Word, id=word_id)
+    return render(
+        request,
+        'app/word.html',{'word':"adskfjlka;djflkadsjf", 'link':'dummylinkf4now.net'}
+    )
 
