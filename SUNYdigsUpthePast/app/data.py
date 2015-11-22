@@ -43,8 +43,11 @@ def addTest(L):
 def clearALL():
     db.word_images.remove()
     db.validated.remove()
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> c5b3ad4a5eb89798b2666025a44fbccb9c2ebf4b
 clearALL()
 addTest(d)
 
