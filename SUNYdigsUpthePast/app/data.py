@@ -25,8 +25,6 @@ def addTest():
 def getOrderedElements():
     x = db.word_images.find()
     results = list(x)
-    #print x
-    #print results
     positives = []
     negatives = []
     zeros = []
@@ -41,18 +39,46 @@ def getOrderedElements():
         if translation != "!@#$%":
             value = img["word"][2]
             if value > 0:
-                if value > 5:
-                    #pass into good database
-                    pass
-                else:
-                    positives.append(img)
+                positives.append(img)
             elif value < 0:
                 negatives.append(img)
             else:
                 zeros.append(img)
-    
-
-
+    print "\n\n"
     positives = sorted(positives,key=lambda x: x["word"][2], reverse=True)
     negatives = sorted(negatives,key=lambda x: x["word"][2], reverse=True)
     return positives + negatives + zeros
+
+
+
+def updateElement(id, increment):
+    L = getOrderedElements()
+    new_value = L[id]["word"][2]
+    orig = L[id]
+    print orig
+    new_value += increment
+    update = L[id]["word"]
+    if new_value >= 5:
+#pass into good database
+        L[id]["word"][2] = new_value
+        insertGood(L[id])
+    else:
+        update[2] = new_value
+    key = L[id]["_id"]
+    db.word_images.update_one({"_id":key},{"$set":{"word":update}})
+    print db.word_images.find({"_id":key})
+    pass
+
+
+
+def insertGood(item):
+    db2 = conn["validated"]
+    #print item
+    #db2.validated.remove()
+    db2.validated.insert(item)
+    db.word_images.remove({"_id":item["_id"]})
+    db.word_images.find()
+    #print db2.validated.find({"_id":item["_id"]})
+    # remove from old database
+    
+    

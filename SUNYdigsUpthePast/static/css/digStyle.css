@@ -235,7 +235,7 @@ label {
 input {
       font: 18px Helvetica, Arial, sans-serif;
       box-sizing: border-box;
-      display: block;
+      /*display: block;*/
       border: none;
       padding: 20px;
       width: 300px;
@@ -427,7 +427,7 @@ input {
 #pageslide .videoWrapper {
 	margin-bottom: 20px;
 }
-#fname {
+#id_translation {
 	text-align: center;
 	border: thin solid #C0C0C0;
 	
@@ -440,12 +440,12 @@ form {
 }
 form label {
   position: relative;
-  display: block;
+  /*display: block;*/
 }
 form label input {
   font: 18px Helvetica, Arial, sans-serif;
   box-sizing: border-box;
-  display: block;
+  /*display: block;*/
   border: none;
   padding: 20px;
   width: 300px;
@@ -501,8 +501,8 @@ form label span {
 	color: #EC3333;
 	font: 13px Helvetica, Arial, sans-serif;
 	position: absolute;
-	top: 0px;
-	left: 20px;
+	top: 6%;
+	left: 30%;
 	opacity: 0;
 	-webkit-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
@@ -520,7 +520,7 @@ form input[type="submit"]:hover {
 	background: #74d5df;
 }
 
-.leftBtn{
+.leftbtn{
 	/*margin-left:1%;
 	display: inline-block;*/
 	
@@ -531,9 +531,9 @@ form input[type="submit"]:hover {
 	padding-left: 2.275%;
 	padding-right: 2.275%;
 	float: left;
-	
+	background-color:blue;
 }
-.RightBtn{
+.rightbtn{
 	position: relative;
 	
 	margin-top:50px;
@@ -541,4 +541,5 @@ form input[type="submit"]:hover {
 	padding-left: 2.275%;
 	padding-right: 2.275%;
 	float: right;
-}
+	background-color:blue
+	}
