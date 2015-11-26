@@ -9,7 +9,6 @@ db = conn['word_images']
 
 
 d = [
-
 ["brown","1899","images/06.jpg","images/06/059.png"],
 ["brown","1899","images/06.jpg","images/06/060.png"],
 ["brown","1899","images/06.jpg","images/06/064.png"],
@@ -40,12 +39,12 @@ def addTest(L):
                      0]
              }
         db.word_images.insert(d)
+
 def clearALL():
     db.word_images.remove()
     db.validated.remove()
 #clearALL()
 #addTest(d)
-
         
 def getOrderedElements():
     x = db.word_images.find()
