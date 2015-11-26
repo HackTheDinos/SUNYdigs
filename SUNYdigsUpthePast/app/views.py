@@ -1,6 +1,6 @@
 #root views
 
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404, render_to_response
 from django.http import HttpRequest
 from django.template import RequestContext
 from datetime import datetime
@@ -12,24 +12,19 @@ data = getOrderedElements()
 
 def home(request):
     """Renders the home page."""
-    id = request.GET.get('id', '0')
-    if int(id) > 0:
-        id = int(id)
-    else:
-        id = 0
-            #DANGER - assumes that there is at least one element in data...
+    id = 0
+    id = int(request.GET.get('id', '0'))
     try:
         result = data[id]
     except:
         try:
             result = data[0]
         except:
-            print data
+            print 'data'
             return render(request,"app/word.html")
             return "somehow.... there are no more items that are in need of validation"
     if request.method =="POST":
         form = TranslationForm(data=request.POST)
-        print id
         if form.is_valid():
             if "submit" in request.POST:
                 opinion = request.POST["submit"]
@@ -37,12 +32,17 @@ def home(request):
                 print form.cleaned_data
                 if opinion.lower() == "dig it":
                     #add 1 to value
+                    print id
                     updateElement(id, 1)
-                    return render(request,'app/err.html')
+                    #return HttpResponseRedirect( 'app/index.html?id='+(id+1))
+                    #return render_to_response('app/index.html',{'id':id+1})
+                    return render(request,'app/index.html')
+                    #return render(request,'app/index.html', {'id':id+1})
                 elif opinion.lower() == "bury it":
                     #add -1 to value
                     updateElement(id, -1)
                     return render(request,'app/word.html')
+                    #return render(request,'app/word.html',{'id':(id+1)})
         
         print request.POST
     #        updateElement
@@ -60,8 +60,6 @@ def home(request):
             'app/index.html',
             {'word':result["word"][0],'parenturl':result["imgpage"],'form':form}
             )
-
-
 
 
 

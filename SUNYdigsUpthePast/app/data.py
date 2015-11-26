@@ -37,14 +37,14 @@ def addTest(L):
              "imgpage":"/static/"+i[0]+"-"+i[1]+"/"+i[2],
              "word":[ "/static/" + i[0]+"-"+i[1]+"/"+i[3],
                      "translated",
-                     i]
+                     0]
              }
         db.word_images.insert(d)
 def clearALL():
     db.word_images.remove()
     db.validated.remove()
-clearALL()
-addTest(d)
+#clearALL()
+#addTest(d)
 
         
 def getOrderedElements():
@@ -79,6 +79,8 @@ def getOrderedElements():
 def updateElement(id, increment):
     L = getOrderedElements()
     new_value = L[id]["word"][2]
+    print "___"
+    print L
     print new_value
     orig = L[id]
     print orig
