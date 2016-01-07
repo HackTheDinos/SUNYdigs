@@ -11,19 +11,19 @@ from data import *
 
 data = getOrderedElements()
 
+#Controls Routing for the Home Page
 def home(request):
     """Renders the home page."""
     id = 0
     id = int(request.GET.get('id', '0'))
-    print id
-    print "testin"
-
     try:
         result = data[id]
     except:
         try:
             result = data[0]
         except:
+            # WE SHOULD NEVER GET HERE UNLESS THE DATABASE HAS NOT BEEN POPULATED WITH DATA
+            # OR FILE SYSTEM HAS BEEN MESSED WITH AND SOMETHING WENT WRONG
             print 'data'
             return render(request,"app/word.html")
 
@@ -34,13 +34,14 @@ def home(request):
                 opinion = request.POST["submit"]
                 #opinion = str(form.cleaned_data["submit"])
                 print form.cleaned_data
+                # DIG IT BUTTON
                 if opinion.lower() == "dig it":
                     #add 1 to value
                     updateElement(id, 1)
                     return HttpResponseRedirect( '?id='+str(id+1))
-                    #return render_to_response('app/index.html',{'id':2})
                     #return render(request,'app/index.html')
                     #return render(request,'app/index.html', {'id':id+1})
+                # BURY IT BUTTON
                 elif opinion.lower() == "bury it":
                     #add -1 to value
                     updateElement(id, -1)
@@ -51,13 +52,9 @@ def home(request):
                     #return render(request,'app/word.html',{'id':(id+1)})
         
         print request.POST
-    #        updateElement
-#        return "ADKLJFALDKS"
     else: # GET REQUEST
         assert isinstance(request, HttpRequest)
-
         translation = result["word"][1]
-        
         form = TranslationForm(initial={'translation':translation})
     
         #NOTE NULL TRANSLATIONS WILL NOT BE RETRIEVED
@@ -67,8 +64,11 @@ def home(request):
             {'word':result["word"][0],'parenturl':result["imgpage"],'form':form}
             )
 
-
-
+#################################################################################
+## THESE NEXT TWO FUNCTIONS CAN BE USED BUT ARE NOT RECOMMENDED... 
+## THEY ARE THE UNFORMATTED VERSIONS OF THE HOME() FUNCTION
+#################################################################################
+######### Very simple display of word with image... (Deprecated) #############
 def word(request):
     assert isinstance(request, HttpRequest)
     id = request.GET.get('id', '0')
@@ -95,7 +95,7 @@ def word(request):
                                            'form':form}
                   )
 
-
+############# initial attempt at home() Posting layout.... (Deprecated) #############
 #def word(request,word_id):
 def words(request,word_id):
     """Renders the individual word page"""
