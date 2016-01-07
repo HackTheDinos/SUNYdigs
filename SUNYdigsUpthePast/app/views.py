@@ -1,6 +1,7 @@
 #root views
 
 from django.shortcuts import render,get_object_or_404, render_to_response
+from django.http import HttpResponseRedirect
 from django.http import HttpRequest
 from django.template import RequestContext
 from datetime import datetime
@@ -14,6 +15,9 @@ def home(request):
     """Renders the home page."""
     id = 0
     id = int(request.GET.get('id', '0'))
+    print id
+    print "testin"
+
     try:
         result = data[id]
     except:
@@ -22,7 +26,7 @@ def home(request):
         except:
             print 'data'
             return render(request,"app/word.html")
-            return "somehow.... there are no more items that are in need of validation"
+
     if request.method =="POST":
         form = TranslationForm(data=request.POST)
         if form.is_valid():
@@ -32,16 +36,18 @@ def home(request):
                 print form.cleaned_data
                 if opinion.lower() == "dig it":
                     #add 1 to value
-                    print id
                     updateElement(id, 1)
-                    #return HttpResponseRedirect( 'app/index.html?id='+(id+1))
-                    #return render_to_response('app/index.html',{'id':id+1})
-                    return render(request,'app/index.html')
+                    return HttpResponseRedirect( '?id='+str(id+1))
+                    #return render_to_response('app/index.html',{'id':2})
+                    #return render(request,'app/index.html')
                     #return render(request,'app/index.html', {'id':id+1})
                 elif opinion.lower() == "bury it":
                     #add -1 to value
                     updateElement(id, -1)
-                    return render(request,'app/word.html')
+                    if id-1<=0:
+                        return HttpResponseRedirect('?id='+str(dbcount()-1))
+                    return HttpResponseRedirect( '?id='+str(id-1))
+                    #return render(request,'app/word.html')
                     #return render(request,'app/word.html',{'id':(id+1)})
         
         print request.POST

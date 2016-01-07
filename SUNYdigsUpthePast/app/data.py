@@ -8,6 +8,7 @@ conn = MongoClient()
 db = conn['word_images']
 
 
+'''
 d = [
 ["brown","1899","images/06.jpg","images/06/059.png"],
 ["brown","1899","images/06.jpg","images/06/060.png"],
@@ -28,8 +29,13 @@ d = [
 ["brown","1899","images/06.jpg","images/06/022.png"],
 ]
 
+#MOVED TO ../init_demo_data.py
+def clearALL():
+    db.word_images.remove()
+    db.validated.remove()
 
 def addTest(L):
+    clearALL()
     for i in L:
         d = {"author":i[0],
              "bookyr":i[1],
@@ -39,12 +45,11 @@ def addTest(L):
                      0]
              }
         db.word_images.insert(d)
+    print "ADDED demo data"
 
-def clearALL():
-    db.word_images.remove()
-    db.validated.remove()
-#clearALL()
 #addTest(d)
+
+'''
         
 def getOrderedElements():
     x = db.word_images.find()
@@ -78,25 +83,21 @@ def getOrderedElements():
 def updateElement(id, increment):
     L = getOrderedElements()
     new_value = L[id]["word"][2]
-    print "___"
-    print L
-    print new_value
     orig = L[id]
-    print orig
     new_value += increment
     update = L[id]["word"]
     if new_value >= 5:
-#pass into good database
+        #pass into good database
         L[id]["word"][2] = new_value
         insertGood(L[id])
     else:
         update[2] = new_value
     key = L[id]["_id"]
     db.word_images.update_one({"_id":key},{"$set":{"word":update}})
-    print db.word_images.find({"_id":key})
-    pass
-
-
+    print getOrderedElements()
+    if new_value >=5:
+        return False
+    return True
 
 def insertGood(item):
     db2 = conn["validated"]
@@ -108,4 +109,11 @@ def insertGood(item):
     #print db2.validated.find({"_id":item["_id"]})
     # remove from old database
     
-    
+def dbcount():
+    i = 0
+    db_data = list(db.word_images.find())
+    for img in db_data:
+        #double check to see if it is in the list
+        if img["word"][2] < 5:
+            i+=1
+    return i

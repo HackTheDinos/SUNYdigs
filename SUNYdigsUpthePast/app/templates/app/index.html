@@ -67,7 +67,7 @@ Container starts here
       <img src="{{word}}" style="height:40px;width:130px" alt=""/> 
       <!--img src="images/see.png" alt=""/--> </a>
 <div id="form">
- <form id="formid" action="?id={{id + 1}}" method="POST">
+ <form id="formid" action="?id={{id|add:1}}" method="POST">
   {% csrf_token %}
    <label>
 {{form}} <!-- id of this element is id_translation -->
