@@ -50,7 +50,10 @@ def addTest(L):
 #addTest(d)
 
 '''
-        
+
+# Every element of crowsource value above and equal to THRESHOLD is deemed okay and moved to another database         
+
+# Get ordered elements from word_image database (positive to zeros to negatives) 
 def getOrderedElements():
     x = db.word_images.find()
     results = list(x)
@@ -79,7 +82,8 @@ def getOrderedElements():
     return positives + negatives + zeros
 
 
-
+#updates Element and checks to see if THRESHOLD is met
+# if so, removed from word_image db and moved to the "validated" collection
 def updateElement(id, increment):
     L = getOrderedElements()
     new_value = L[id]["word"][2]
@@ -99,16 +103,17 @@ def updateElement(id, increment):
         return False
     return True
 
+#removes element from "word_images" and inserts validated element into the "validated" collection
 def insertGood(item):
+    # add to validated collection
     db2 = conn["validated"]
-    #print item
-    #db2.validated.remove()
     db2.validated.insert(item)
+    # remove from old collection
     db.word_images.remove({"_id":item["_id"]})
     db.word_images.find()
     #print db2.validated.find({"_id":item["_id"]})
-    # remove from old database
-    
+   
+# count of current word_images collection    
 def dbcount():
     i = 0
     db_data = list(db.word_images.find())
